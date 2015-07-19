@@ -1,3 +1,23 @@
+##Information about pictures, copyright & file names
+The original pictures here are semi-randomly selected pictures from the Internet to which I do not have any copyrights and have been used and published here for purely non-commercial and educational purposes. If you are the owner of any of those pictures and would like it to be deleted, please let me know by using github and the files you will claim will be deleted asap.
+
+Some of the photos were converted from PNG or BMP file format to JPG, but no record of this changes was made. Most of the pictures were resized to a semi-random resolution to help the script run faster, check the impact of the resolution on the script's speed and avoid potential memory problems and no record of these changes was made. All modifications to these files was made using IrfanView.
+
+
+The file names are coded in the following way:
+-dream.png => standard settings [1], standard set[0], 1st try
+-dream2.png => standard settings [1], standard set, 2nd try
+-dream3.png => 1st mod of settings [2], standard set, 1st try
+
+If the file is in the JPG file format and has no "-dream-" addition to its name, it mean that this is the original file
+
+NOTE: Currently you can find here original pictures and those created in the 1st and 2nd try (-dream.png and -dream2.png). This repo will be updated.
+
+##Notes
+[0] By "standard set" I mean that the script has not been trained with any additional picture sets, than originally implemented by its creator (see the original github repo of which this one is a fork).
+
+[1] Default dreamify.py
+
 # imports and basic notebook setup
 from cStringIO import StringIO
 import numpy as np
@@ -59,7 +79,7 @@ def make_step(net, step_size=1.5, end='inception_4c/output', jitter=32, clip=Tru
         bias = net.transformer.mean['data']
         src.data[:] = np.clip(src.data, -bias, 255-bias)
 
-def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_4c/output', clip=True, **step_params): #"inter_n=10, octave_n=8" was in the original
+def deepdream(net, base_img, iter_n=10, octave_n=4, octave_scale=1.4, end='inception_4c/output', clip=True, **step_params):
     # prepare base images for all octaves
     octaves = [preprocess(net, base_img)]
     for i in xrange(octave_n-1):
@@ -103,3 +123,7 @@ octaves = int(sys.argv[5]) if len(sys.argv)>5 else 4
 oct_scale = float(sys.argv[6]) if len(sys.argv)>6 else 1.4
 _=deepdream(net, img, end=end_name, iter_n=iter_n, octave_n=octaves, octave_scale=oct_scale)
 savearray(_, sys.argv[2])
+
+
+[2] 1st mod dreamify.py, line 62 change:
+def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_4c/output', clip=True, **step_params): #"inter_n=10, octave_n=8" was in the original

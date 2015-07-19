@@ -1,3 +1,6 @@
+##
+This fork is to track the personal experimentation with the dreamify.py script. Further details to come. Please note, this repo does not include (at least at the moment) any significant changes to the script. The point of the experiment is a personal learning experience of the script. If you are here to browse dreamified pictures and see how various options influence the resulting image, please visit the pics folder. Any changes to the files will be highlighted either in the code or in the commit messages.
+
 # image-dreamer
 "Dreams" images, such as shown in the [Google Research blog post on "Inceptionism"](http://googleresearch.blogspot.ch/2015/06/inceptionism-going-deeper-into-neural.html).
 
