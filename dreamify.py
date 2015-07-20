@@ -59,7 +59,7 @@ def make_step(net, step_size=1.5, end='inception_4c/output', jitter=32, clip=Tru
         bias = net.transformer.mean['data']
         src.data[:] = np.clip(src.data, -bias, 255-bias)
 
-def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_3a/5x5', clip=True, **step_params): #"end='inception_3a/3x3_reduce" was in the last version
+def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_3a/5x5_reduce', clip=True, **step_params): #"end='inception_3a/5x5'" was in the last version
     # prepare base images for all octaves
     octaves = [preprocess(net, base_img)]
     for i in xrange(octave_n-1):
