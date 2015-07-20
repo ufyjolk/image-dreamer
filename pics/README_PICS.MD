@@ -8,6 +8,10 @@ The file names are coded in the following way:
 -dream.png => standard settings [1], standard set[0], 1st try
 -dream2.png => standard settings [1], standard set, 2nd try
 -dream3.png => 1st mod of settings [2], standard set, 1st try
+-dream4.png => 2nd mod of settings [3] /1st layer test/, standard set, 1st try
+-dream5.png => 3nd mod of settings [4] /2nd layer test/, standard set, 1st try
+-dream6.png => 4nd mod of settings [5] /3rd layer test/, standard set, 1st try
+-dream7.png => 5nd mod of settings [6] /4th layer test/, standard set, 1st try
 
 If the file is in the JPG file format and has no "-dream-" addition to its name, it mean that this is the original file
 
@@ -15,6 +19,7 @@ NOTE: Currently you can find here original pictures and those created in the 1st
 
 ##Notes
 [0] By "standard set" I mean that the script has not been trained with any additional picture sets, than originally implemented by its creator (see the original github repo of which this one is a fork).
+
 
 [1] Default dreamify.py
 
@@ -127,3 +132,19 @@ savearray(_, sys.argv[2])
 
 [2] 1st mod dreamify.py, line 62 change:
 def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_4c/output', clip=True, **step_params): #"inter_n=10, octave_n=8" was in the original
+
+
+[3]
+def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_3a/1x1', clip=True, **step_params): #"inter_n=10, octave_n=4, octave_scale=1.4, end='inception_4c/output" was in the original
+
+
+[4]
+def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_3a/3x3', clip=True, **step_params): #"end='inception_3a/1x1" was in the last version
+
+
+[5]
+def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_3a/3x3_reduce', clip=True, **step_params): #"end='inception_3a/3x3" was in the last version
+
+
+[6]
+def deepdream(net, base_img, iter_n=15, octave_n=8, octave_scale=1.4, end='inception_3a/5x5', clip=True, **step_params): #"end='inception_3a/3x3_reduce" was in the last version
